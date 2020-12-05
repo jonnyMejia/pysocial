@@ -1,0 +1,30 @@
+{% load static %}
+{% include 'head.html' %}
+<body>
+  {% block body %}
+  <div class="limiter">
+      <div class="container-login100">
+          <div class="wrap-login100">
+                {% block content %}
+                
+                {% endblock content %}
+          </div>
+      </div>
+  </div>
+  
+  {% endblock body %}
+  {% block extra_body %}
+  {% endblock extra_body %}
+
+  <script src="{% static 'account/js/jquery/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'account/js/popper.js' %}"></script>
+  <script src="{% static 'account/js/tilt.jquery.min.js' %}"></script>
+  <script >
+      $('.js-tilt').tilt({
+          scale: 1.1
+      })
+  </script>
+
+</body>
+</html>
+</html>

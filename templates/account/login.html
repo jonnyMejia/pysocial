@@ -1,0 +1,74 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+<!-- Image UNMSM -->
+<div class="login100-pic js-tilt" data-tilt>
+  <a href=""><img src="{% static 'account/images/unmsm_logo.svg' %}" alt=""></a>
+</div>
+
+<!-- Form Sign IN -->
+<form class="login100-form validate-form" method="POST" action="{% url 'account_login' %}">
+  <span class="login100-form-title">{% trans "Sign In" %}</span>
+  {% csrf_token %}
+  <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+    {{ form.login }}
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+    </span>
+  </div>
+
+  <div class="wrap-input100 validate-input" data-validate = "Password is required">
+    {{ form.password }}
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+      <i class="fa fa-lock" aria-hidden="true"></i>
+    </span>
+  </div>
+
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <div class="container-login100-form-btn" type="submit">
+    <button class="login100-form-btn">
+      {% trans "Sign In" %}
+    </button>
+  </div>
+  <div class="text-center p-t-12">
+      <span class="txt1">Forgot</span>
+      <a class="txt2" href="{% url 'account_reset_password' %}">Username / Password?</a>
+  </div>
+
+  {% get_providers as socialaccount_providers %}
+
+  {% if socialaccount_providers %}
+  <p>{% blocktrans with site.name as site_name %}Please sign in with one
+  of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+  for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
+  <div class="socialaccount_ballot">
+
+    <ul class="socialaccount_providers">
+      {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+    </ul>
+
+    <div class="login-or">{% trans 'or' %}</div>
+
+  </div>
+
+  {% include "socialaccount/snippets/login_extra.html" %}
+
+  {% else %}
+  <p class="text-center p-t-50">{% blocktrans %}If you have not created an account yet, then please
+  <a class = "txt2" href="{{ signup_url }}">sign up</a> first. <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>{% endblocktrans %}
+  </p>
+  
+  {% endif %}
+</form>
+
+{% endblock %}

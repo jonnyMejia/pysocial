@@ -1,0 +1,70 @@
+{% load static %}
+<div class="navbar">
+    <div class="navbar_menuicon" id="navicon">
+        <i class="fa fa-navicon"></i>
+    </div>
+    <div class="navbar_logo">
+        <img src="{% static 'base/images/unmsm_logo.svg' %}" alt="" />
+    </div>
+    <div class="navbar_page" style="background-color:#3F4257">
+        <span><a style="color: white;" href="{% url 'base:home' %}">{{ user.email }}</a></span>
+    </div>
+    <div class="navbar_search">
+        <form method="" action="/">
+            <input type="text" placeholder="Search people.." />
+            <button><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    <div class="navbar_icons">
+        <ul>
+            <li id="friendsmodal"><i class="fa fa-user-o"></i><span id="notification">5</span></li>
+            <li id="messagesmodal"><i class="fa fa-comments-o"></i><span id="notification">2</span></li>
+        </ul>
+    </div>
+
+    <!-- User Nav -->
+    <div class="navbar_user" id="profilemodal" style="cursor:pointer">
+        <img src="{{ user.avatar.url }}" alt="" />
+        
+        {% if user.is_superuser %}
+            <span id="navbar_user_top">{{ user }}<br><p>Admin</p></span><i class="fa fa-angle-down"></i>
+        {% else %}
+            <span id="navbar_user_top">{{ user }}<br><p>User</p></span><i class="fa fa-angle-down"></i>
+        {% endif %}
+        
+    </div>
+    <!-- Modal Profile -->
+    <div class="modal modal-profile">
+        <div class="modal-icon-select"><i class="fa fa-sort-asc" aria-hidden="true"></i></div>
+        <div class="modal-title">
+            <span>YOUR ACCOUNT</span>
+             <a href="{% url 'base:settings' %}"><i class="fa fa-cogs"></i></a>
+        </div>
+        <div class="modal-content">
+            <ul>
+                <li>
+                    <a href="{% url 'base:settings' %}">
+                        <i class="fa fa-tasks" aria-hidden="true"></i>
+                        <span><b>Profile Settings</b><br>Yours profile settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <span><b>Create a community</b><br>Create your community</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'account_logout' %}">
+                        <i class="fa fa-power-off" aria-hidden="true"></i>
+                        <span><b>Log Out</b><br>Close your session</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% include 'navbar/friends.html' %}
+    
+{% include 'navbar/message.html' %}

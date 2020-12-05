@@ -1,0 +1,27 @@
+{% load static %}
+<!-- Modal Friends -->
+<div class="modal modal-friends">
+    <div class="modal-icon-select"><i class="fa fa-sort-asc" aria-hidden="true"></i></div>
+    <div class="modal-title">
+        <span>FRIEND REQUESTS</span>
+         <a href="friends.html"><i class="fa fa-ellipsis-h"></i></a>
+    </div>
+    <div class="modal-content">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="{% static 'base/images/user-2.jpg' %}" alt="" />
+                    <span><b>Tony Stevens</b><br>4 Friends in Common</span>
+                    <button class="modal-content-accept">Accept</button><button class="modal-content-decline">Decline</button>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/user-6.jpg" alt="" />
+                    <span><b>Tamara Romanoff</b><br>2 Friends in Common</span>
+                    <button class="modal-content-accept">Accept</button><button class="modal-content-decline">Decline</button>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

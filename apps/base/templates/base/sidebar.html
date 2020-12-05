@@ -1,0 +1,18 @@
+{% load static %}
+<div class="left_row">
+    <div class="left_row_profile">
+        <img id="portada" src="{% static 'base/images/portada.jpg' %}" />
+        <div class="left_row_profile">
+            <img id="profile_pic" src=" {{user.avatar.url }}" />
+            <span>{{user.get_full_name}}<br><p></p></span>
+        </div>
+    </div>
+    <div class="rowmenu">
+        <ul>
+            <li><a href="index.html" id="rowmenu-selected"><i class="fa fa-globe"></i>Newsfeed</a></li>
+            <li><a href="profile.html"><i class="fa fa-user"></i>Profile</a></li>
+            <li><a href="friends.html"><i class="fa fa-users"></i>Friends</a></li>
+            <li><a href="friends.html"><i class="fa fa-users"></i>Activity</a></li>
+        </ul>
+    </div>
+</div>

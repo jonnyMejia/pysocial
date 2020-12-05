@@ -1,0 +1,28 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+
+{% block content %}
+
+<form class="login100-form-title" method="post" action="{% url 'account_logout' %}">
+  <span class="login100-form-title">
+    {% trans "Sign Out" %}
+    <p class="text-center p-t-5">{% trans 'Are you sure you want to sign out?' %}</p>
+  </span>
+  {% csrf_token %}
+  <div class="modal-content">
+    <a href="{% url 'base:home' %}"  style="text-decoration:none" id="cancel" name="cancel" class="login100-form-btn">{% trans "Return" %}</a>
+    
+    <button style="background-color: #ff0000" class="login100-form-btn">{% trans "Sign Out" %}</button>
+  </div>
+  
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+  {% endif %}
+</form>
+
+
+
+{% endblock %}

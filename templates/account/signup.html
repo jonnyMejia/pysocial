@@ -1,0 +1,47 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+
+<form  class="login100-form validate-form" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  <span class="login100-form-title">{% trans "Sign Up" %}</span>
+  {% csrf_token %}
+  <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+    {{ form.email }}
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+    </span>
+  </div>
+  <div class="wrap-input100 validate-input" data-validate = "Password is required">
+    {{ form.password1 }}
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+        <i class="fa fa-lock" aria-hidden="true"></i>
+    </span>
+  </div>
+  <div class="wrap-input100 validate-input" data-validate = "Password is required">
+    {{ form.password2 }}
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+        <i class="fa fa-lock" aria-hidden="true"></i>
+    </span>
+  </div>
+  <div class="container-login100-form-btn" type="submit">
+    <button class="login100-form-btn" >{% trans "Sign Up" %}</button>
+  </div>
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <p class="text-center p-t-50">{% blocktrans %}Already have an account? Then please 
+    <a class = "txt2" href="{{ login_url }}">sign in</a>. {% endblocktrans %}
+    </p>
+</form>
+
+<div class="login100-pic js-tilt" data-tilt>
+  <a href=""><img src="{% static 'account/images/unmsm_logo.svg' %}" alt=""></a>
+</div>
+{% endblock %}

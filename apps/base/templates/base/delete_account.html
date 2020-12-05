@@ -1,0 +1,10 @@
+<h3> Delete My Account </h3>
+
+    <form method="get" role="form" action="{% url 'base:home' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary ">{{ _('Cancelar') }}</button>
+    </form>
+    <form method="post" role="form" action="{% url 'base:delete_account' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">{{ _('Delete') }}</button>
+    </form>
