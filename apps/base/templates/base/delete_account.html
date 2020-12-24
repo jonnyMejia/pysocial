@@ -4,7 +4,7 @@
         {% csrf_token %}
         <button type="submit" class="btn btn-primary ">{{ _('Cancelar') }}</button>
     </form>
-    <form method="post" role="form" action="{% url 'base:delete_account' %}">
+    <form method="post" role="form" action="{% url 'PyProfile:delete' %}">
         {% csrf_token %}
         <button type="submit" class="btn btn-danger">{{ _('Delete') }}</button>
     </form>

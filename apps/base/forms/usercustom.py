@@ -24,9 +24,9 @@ class ProfileForm(forms.ModelForm):
             'day_of_birth': _('Day of Birth'),
         }
         widgets = {
-            'avatar': forms.FileInput(attrs={'class': 'form-control'}),
-            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'gender': forms.Select(attrs={'class': 'form-control'}),
-            'day_of_birth': forms.DateInput( format=('%m/%d/%Y'), attrs={'placeholder':'like 05/12/1999'}),
+            'avatar': forms.FileInput(attrs={'class': 'pi-input pi-input-lg'}),
+            'first_name': forms.TextInput(attrs={'class': 'pi-input pi-input-lg'}),
+            'last_name': forms.TextInput(attrs={'class': 'pi-input pi-input-lg'}),
+            'gender': forms.Select(attrs={'class': 'pi-input pi-input-md'}),
+            'day_of_birth': forms.DateInput(format=('%m/%d/%Y'), attrs={'class': 'pi-input pi-input-lg'}),
         }

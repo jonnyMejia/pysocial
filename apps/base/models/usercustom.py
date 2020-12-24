@@ -7,8 +7,8 @@ from djongo import models
 from django.utils.translation import ugettext_lazy as _
 
 # Localfolder Library
-from . import PyUserManager
 from ..rename_image import RenameImage
+from . import PyUserManager
 
 def image_path(instance, filename):
     return os.path.join('avatar', str(instance.pk) + '.' + filename.rsplit('.', 1)[1])
@@ -34,7 +34,6 @@ class PyUser(AbstractUser):
     first_name = models.CharField(_("First_name"), max_length=30)
     last_name = models.CharField(_("Last_Nanme"), max_length=30, blank=True, null=True)
     # celular = models.CharField(_("Numero Móvil"), max_length=255, blank=True, null=True)
-    # avatar = models.ImageField(max_length=255, storage=RenameImage(), upload_to=image_path, blank=True, null=True, default='avatar/default_avatar.png')
     
     gender =  models.CharField(_("Gender"), choices=GENDER_CHOICE, max_length=64, default='U')
 
@@ -42,7 +41,9 @@ class PyUser(AbstractUser):
 
     day_of_birth = models.DateField(_("Gender"), null = True, blank = True)
     
-    
+    # publications = models.ForeignKey(PyPublication, null = True, blank = True, on_delete=models.PROTECT)
+    # friends = models.ManyToManyField('self', blank=True, null=True, related_name="friends")
+
     def __str__(self):
         return '{} {}'.format(self.first_name, self.last_name)
 
@@ -52,3 +53,4 @@ class PyUser(AbstractUser):
     class Meta:
         verbose_name = _('User')
         verbose_name_plural = _('Users')
+

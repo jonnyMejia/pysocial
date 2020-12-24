@@ -1,4 +1,4 @@
-"""Rutas de PySocial
+"""Routes for PySocial
 """
 # Django Library
 from django.conf import settings
@@ -10,7 +10,6 @@ from django.views.static import serve
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.base.urls')),
-    # url(r'^rest-auth/', include('rest_auth.urls')),
     path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT, }),
     path('static/<path:path>', serve, {'document_root': settings.STATIC_ROOT, }),
 ]

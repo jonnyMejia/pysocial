@@ -36,14 +36,10 @@
     <!-- Modal Profile -->
     <div class="modal modal-profile">
         <div class="modal-icon-select"><i class="fa fa-sort-asc" aria-hidden="true"></i></div>
-        <div class="modal-title">
-            <span>YOUR ACCOUNT</span>
-             <a href="{% url 'base:settings' %}"><i class="fa fa-cogs"></i></a>
-        </div>
         <div class="modal-content">
             <ul>
                 <li>
-                    <a href="{% url 'base:settings' %}">
+                    <a href="{% url 'PyProfile:update' %}">
                         <i class="fa fa-tasks" aria-hidden="true"></i>
                         <span><b>Profile Settings</b><br>Yours profile settings</span>
                     </a>

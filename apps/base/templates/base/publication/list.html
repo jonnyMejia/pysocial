@@ -1,0 +1,40 @@
+{% extends 'base/publication/update.html' %}
+
+
+{% block content %}
+
+<div class="right_row">
+    {% for publication in object_list %}
+    <div class="row border-radius">
+        <div class="feed">
+            <div class="row_title">
+                <span><a href="{% url 'PyPublication:update' publication.id %}"> <i class="fa fa-pencil" aria-hidden="true"></i> Update </a></span>
+                <span><a href="{% url  'PyPublication:delete' publication.id %}"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete </a></span>
+            </div>
+            <div class="feed_title">
+                <img src="{{publication.user.avatar.url}}" alt="" />
+                <span><b>{{publication.user.get_full_name}}</b><p>{{publication.updated_at}}</p></span>
+            </div>
+            <div class="feed_content">
+                <div class="feed_content_image">
+                    <p>{{publication.content}}</p>
+                </div>
+            </div>
+            <div class="feed_footer">
+                <ul class="feed_footer_left">
+                    <li class="hover-orange selected-orange"><i class="fa fa-heart"></i> {{publication.likes}}</li>
+                    <li><span><b>Jimmy, Andrea</b> and 157 more liked this</span></li>
+                </ul>
+                <ul class="feed_footer_right">
+                    <li>
+                        <li class="hover-orange selected-orange"><i class="fa fa-share"></i> 7k</li>
+                        <a href="feed.html" style="color:#515365;"><li class="hover-orange"><i class="fa fa-comments-o"></i> 54 comments</li></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

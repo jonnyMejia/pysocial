@@ -1,0 +1,9 @@
+
+<form method="get" role="form" action="{{view.success_url}}">
+    {% csrf_token %}
+    <button type="submit" class="add-friend ">{{ _('Cancelar') }}</button>
+</form>
+<form method="post" role="form">
+    {% csrf_token %}
+    <button type="submit" class="delete-friend">{{ _('Delete') }}</button>
+</form>

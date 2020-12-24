@@ -9,10 +9,11 @@
     </div>
     <div class="rowmenu">
         <ul>
-            <li><a href="index.html" id="rowmenu-selected"><i class="fa fa-globe"></i>Newsfeed</a></li>
-            <li><a href="profile.html"><i class="fa fa-user"></i>Profile</a></li>
-            <li><a href="friends.html"><i class="fa fa-users"></i>Friends</a></li>
-            <li><a href="friends.html"><i class="fa fa-users"></i>Activity</a></li>
+            <li><a href="{% url 'PyPublication:list' %}" id="rowmenu-selected"><i class="fa fa-globe"></i>My Publications</a></li>
+            <li><a href="{% url 'PyProfile:update' %}"><i class="fa fa-user"></i>Profile</a></li>
+            <li><a href=""><i class="fa fa-users"></i>Friends</a></li>
+            <li><a href=""><i class="fa fa-users"></i>Activity</a></li>
         </ul>
     </div>
 </div>
+

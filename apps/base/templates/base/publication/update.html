@@ -1,0 +1,51 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<div class="right_row">
+
+    <div class="row border-radius">
+        <center><div class="settings shadow">
+            <div class="settings_title">
+                <h3>Personal Information</h3>
+            </div>
+            <div class="settings_content">
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    {% for field in form %}
+                    <div class="pi-input pi-input-lg">
+                        <span>{{field.label}}</span>
+                        {{field}}
+                    </div>
+                    {% endfor %}
+
+                    <button type="submit">Update all changes</button>
+                </form>
+            </div>
+        </div></center>
+    </div>
+</div>
+{% endblock content %}
+    
+
+{% block suggestion %}
+<div class="suggestions_row">
+    <div class="row shadow">
+        <div class="row_title">
+            <span>Configurations</span>
+        </div>
+        <div class="menusetting_contain">
+            <ul>
+                <li>
+                    <a href="{% url 'PyProfile:update' %}" id="settings-select">Delete all Publications</a>
+                </li>
+                <li>
+                    <a href="{% url 'PyProfile:delete' %}">Publications Settings</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock suggestion %}
+    

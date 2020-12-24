@@ -7,8 +7,9 @@ from django.urls import path
 from ..views import PyHomeTemplateView, PyUserUpdateView, PyUserDeleteView
 from ..views.publication import PyPublicationCreateView
 
-app_name = 'base'
+app_name = 'PyProfile'
 
 urlpatterns = [
-    path('', PyHomeTemplateView, name='home'),
+    path('update/', PyUserUpdateView, name='update'),
+    path('delete/', PyUserDeleteView, name='delete'),
 ]

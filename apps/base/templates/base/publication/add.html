@@ -1,0 +1,20 @@
+{% extends 'base/publication/update.html' %}
+
+{% block content %}
+<div class="right_row">
+    <div class="row border-radius">
+    <form action="" enctype="multipart/form-data" method="POST" >
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Create</button>
+    </form>
+    </div>
+</div>
+{% endblock content %}
+
+
+{% block suggestion %}
+    
+{% endblock suggestion %}
+    
+    
