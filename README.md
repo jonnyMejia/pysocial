@@ -9,10 +9,9 @@ PySocial is a project open-source, user-oriented, **Social Network** system base
 ## Contributors
 
 - Jonny D Mejia <https://github.com/jonnyMejia>
-- Javier Flores <https://github.com/javierefe>
 
 ## License & copyright
 
-@ Jonny D Mejia, Systems engineer
+@ Jonny D Mejia, Systems engineer student
 
 Licensed under the [MIT License](LICENSE)

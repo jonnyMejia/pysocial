@@ -6,7 +6,7 @@ from django.contrib.auth.models import Permission
 
 # Localfolder Library
 from .models import (
-    PyUser, PyPublication, PyComment)
+    PyUser, PyPublication, PyComment, PyMessage, PyFriends, PyConversation)
 
 class UserAdmin(UserAdmin):
     """ Admin for Users
@@ -30,5 +30,8 @@ class UserAdmin(UserAdmin):
 admin.site.register(PyUser, UserAdmin)
 admin.site.register(PyPublication)
 admin.site.register(PyComment)
+admin.site.register(PyFriends)
+admin.site.register(PyConversation)
+admin.site.register(PyMessage)
 #admin.site.register(PyPublication, PublicationAdmin)
 admin.site.register(LogEntry)

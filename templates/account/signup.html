@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<form  class="login100-form validate-form" id="signup_form" method="post" action="{% url 'account_signup' %}">
+<form  class="login100-form validate-form" id="signup_form" method="POST" action="{% url 'account_signup' %}">
   <span class="login100-form-title">{% trans "Sign Up" %}</span>
   {% csrf_token %}
   <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
@@ -42,6 +42,6 @@
 </form>
 
 <div class="login100-pic js-tilt" data-tilt>
-  <a href=""><img src="{% static 'account/images/unmsm_logo.svg' %}" alt=""></a>
+  <a href=""><img src="{% static 'account/images/antiplano_logo.svg' %}" alt=""></a>
 </div>
 {% endblock %}

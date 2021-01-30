@@ -15,6 +15,9 @@ def image_path(instance, filename):
 class PyConversation(models.Model):
     '''Conversation Model
     '''
+
+    id = models.AutoField(primary_key=True)
+
     created_at = models.DateTimeField(_("Created_at"), auto_now_add = True)
 
     sender_id = models.ForeignKey(PyUser, on_delete=models.CASCADE, related_name='+', null=False, blank=False)
@@ -28,13 +31,16 @@ class PyConversation(models.Model):
 class PyMessage(models.Model):
     '''Conversation Model
     '''
+
+    id = models.AutoField(primary_key=True)
+
     content = models.CharField(_("Content"), max_length=300)
 
     created_at = models.DateTimeField(_("Created_at"), auto_now_add = True)
 
-    user_id = models.ForeignKey(PyUser,related_name='Me',  on_delete=models.CASCADE, null=False, blank=False)
+    user_id = models.ForeignKey(PyUser, related_name='+',  on_delete=models.CASCADE, null=False, blank=False)
 
-    conversation_id = models.ForeignKey(PyConversation, related_name='Conversation',  on_delete=models.CASCADE, null=False, blank=False)
+    conversation_id = models.ForeignKey(PyConversation, related_name='+',  on_delete=models.CASCADE, null=True, blank=True)
     
     class Meta:
         verbose_name = _('Message')

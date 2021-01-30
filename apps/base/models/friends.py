@@ -16,6 +16,8 @@ class PyFriends(models.Model):
     '''Friends Model
     '''
 
+    id = models.AutoField(primary_key=True)
+
     is_accepted = models.BooleanField(_("Accepted"), default=False)
     
     created_at = models.DateTimeField(_("Created_at"), auto_now_add = True)

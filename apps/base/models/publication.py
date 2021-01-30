@@ -16,6 +16,8 @@ class PyPublication(models.Model):
     '''Publication Model
     '''
 
+    id = models.AutoField(primary_key=True)
+
     content = models.CharField(_("Content"), max_length=500)
 
     likes = models.IntegerField(_("Likes"), default = 0)
@@ -35,6 +37,8 @@ class PyPublication(models.Model):
 class PyComment(models.Model):
     '''Comments Model
     '''
+
+    id = models.AutoField(primary_key=True)
 
     likes = models.IntegerField(_("Likes"), default = 0)
 

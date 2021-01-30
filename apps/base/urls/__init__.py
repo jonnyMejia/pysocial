@@ -11,5 +11,4 @@ urlpatterns = [
     path('profile/', include('apps.base.urls.profile')),
     path('publication/', include('apps.base.urls.publication')),
     path('user/', include('apps.base.urls.usercustom')),
-   
 ]

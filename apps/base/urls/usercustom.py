@@ -12,8 +12,8 @@ from allauth.account import views
 urlpatterns = [
     re_path(r'^account-confirm-email/(?P<key>[-:\w]+)/$', VerifyEmailView.as_view(), name='account_confirm_email'),
     re_path(r'^account-confirm-email/$', VerifyEmailView.as_view(), name='account_email_verification_sent'),
-    path("signup/", views.signup, name="account_signup"),
     path("login/", views.login, name="account_login"),
+    path("signup/", views.signup, name="account_signup"),
     path("logout/", views.logout, name="account_logout"),
     path("password/change/",views.password_change,name="account_change_password",),
     path("password/set/", views.password_set, name="account_set_password"),

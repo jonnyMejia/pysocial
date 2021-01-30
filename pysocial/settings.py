@@ -185,10 +185,12 @@ MEDIA_ROOT = 'media'
 # Password : admin
 
 # Override configurations in my forms Users
+#ACCOUNT_SIGNUP_FORM_CLASS = 'apps.base.forms.MySignupForm'
 
 ACCOUNT_FORMS = {
     'login': 'apps.base.forms.MyLoginForm',
     'signup': 'apps.base.forms.MySignupForm',
+    #'signup': 'allauth.account.forms.SignupForm',
     'add_email': 'allauth.account.forms.AddEmailForm',
     'change_password': 'allauth.account.forms.ChangePasswordForm',
     'set_password': 'allauth.account.forms.SetPasswordForm',
